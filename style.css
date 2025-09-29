@@ -135,7 +135,7 @@ header {
   background: var(--white);
   position: fixed;
   z-index: 4;
-  transition: var(--transition);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 header.active {
@@ -165,7 +165,7 @@ header.active {
   height: 100vh;
   background: var(--mediumBlue);
   padding-top: 6rem;
-  transition: var(--transition);
+  transition: right 0.3s ease-in-out;
   box-shadow: -2px 0 4px hsla(0, 0%, 0%, 0.1);
   visibility: hidden;
 }
@@ -180,7 +180,7 @@ header.active {
   font-size: 1.6rem;
   font-weight: 200;
   padding: 2rem;
-  transition: var(--transition);
+  transition: background 0.3s ease-in-out;
 }
 
 .navbar__link:is(:hover, :focus) {
@@ -412,12 +412,12 @@ header.active {
 
 /* Social Style */
 .social {
-  background: #EDEFF2;
+  background: #edeff2;
 }
 
 .social__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(23rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   gap: 2rem;
   justify-content: center;
 }
@@ -463,6 +463,7 @@ header.active {
 .socials ul li {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .socials ul li ion-icon {
@@ -470,6 +471,83 @@ header.active {
   color: var(--darkBlue);
 }
 
+/* Media Queries */
 
+/* Media Queries */
 
+@media (min-width: 768px) {
+  /* 1. HEADER WRAPPER (CORRECTED) */
+  .header__wrapper {
+    max-width: 94rem;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+  }
 
+  .navbar {
+    position: static;
+    width: auto;
+    height: 2.5rem;
+    background: none;
+    padding-top: 0;
+    box-shadow: none;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__open__btn,
+  .nav__close__btn {
+    display: none;
+  }
+
+  .navbar__list {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .navbar__item:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .navbar__link {
+    color: var(--darkGray);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar__link:is(:hover, :focus) {
+    background: none;
+    color: var(--lightBlue);
+  }
+
+  .btn-primary {
+    background: var(--darkBlue);
+    color: var(--white);
+    width: auto;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+    font-size: 1.4rem;
+  }
+
+  .btn-primary:is(:hover, :focus) {
+    background: var(--blightBlue);
+  }
+
+  /* Services Mobile Style */
+
+  .services__images__wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .services__image {
+    width: 50%;
+  }
+
+  /* Portfolio Mobile Style */
+  .portfolio__btn__wrapper {
+    flex-direction: row;
+  }
+}
