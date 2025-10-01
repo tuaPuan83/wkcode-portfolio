@@ -40,39 +40,66 @@ window.addEventListener("scroll", function () {
   }
 });
 
-homeBtn.addEventListener("click", function (e) {
-  const heroCoords = sectionHero.getBoundingClientRect();
-  //   console.log(heroCoords);
+// homeBtn.addEventListener("click", function (e) {
+//   const heroCoords = sectionHero.getBoundingClientRect();
+//   console.log(heroCoords);
 
-  //   console.log(e.target.getBoundingClientRect());
+//   console.log(e.target.getBoundingClientRect());
 
-  //   console.log("Current Scroll (X/Y)", window.scrollX, window.scrollY);
+//   console.log("Current Scroll (X/Y)", window.scrollX, window.scrollY);
 
-  //   //   Scroll
-  //   window.scrollTo(heroCoords.left, heroCoords.top);
-  sectionHero.scrollIntoView({ behavior: "smooth" });
-});
+//   //   Scroll
+//   window.scrollTo(heroCoords.left, heroCoords.top);
+//   sectionHero.scrollIntoView({ behavior: "smooth" });
+// });
 
-offeringBtn.addEventListener("click", function (e) {
-  const offeringCoords = sectionOffering.getBoundingClientRect();
-  //   console.log(offeringCoords);
+// offeringBtn.addEventListener("click", function (e) {
+//   const offeringCoords = sectionOffering.getBoundingClientRect();
+//   console.log(offeringCoords);
 
-  //   console.log(e.target.getBoundingClientRect());
+//   console.log(e.target.getBoundingClientRect());
 
-  //   console.log("Current Scroll (X/Y)", window.scrollX, window.scrollY);
+//   console.log("Current Scroll (X/Y)", window.scrollX, window.scrollY);
 
-  //   Scroll
-  //   window.scrollTo(
-  //     offeringCoords.left + window.scrollX,
-  //     offeringCoords.top + window.scrollY
-  //   );
-  sectionOffering.scrollIntoView({ behavior: "smooth" });
-});
+//   Scroll
+//   window.scrollTo(
+//     offeringCoords.left + window.scrollX,
+//     offeringCoords.top + window.scrollY
+//   );
+//   sectionOffering.scrollIntoView({ behavior: "smooth" });
+// });
 
-servicesBtn.addEventListener("click", function (e) {
-  sectionServices.scrollIntoView({ behavior: "smooth" });
-});
+// servicesBtn.addEventListener("click", function (e) {
+//   sectionServices.scrollIntoView({ behavior: "smooth" });
+// });
 
-socialBtn.addEventListener("click", function (e) {
-  sectionSocial.scrollIntoView({ behavior: "smooth" });
+// socialBtn.addEventListener("click", function (e) {
+//   sectionSocial.scrollIntoView({ behavior: "smooth" });
+// });
+
+// Use Propagation
+
+// document.querySelectorAll(".navbar__link").forEach(function (el) {
+//   el.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute("href");
+//     document.querySelector(id).scrollIntoView({
+//       behavior: "smooth",
+//     });
+//   });
+// });
+
+// 1.Add event listner to common parent element
+// 2. Determine what element originated the event
+
+document.querySelector(".navbar__list").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  // Matching
+  if (e.target.classList.contains("navbar__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({
+      behavior: "smooth",
+    });
+  }
 });
