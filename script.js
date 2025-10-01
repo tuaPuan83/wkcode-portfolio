@@ -19,8 +19,12 @@ const navCloseBtn = document.querySelector("[data-nav-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
 const sectionHero = document.querySelector("#section-hero");
 const sectionOffering = document.querySelector("#section-offering");
+const sectionServices = document.querySelector("#section-services");
+const sectionSocial = document.querySelector("#section-social");
 const homeBtn = document.querySelector("#hero-btn");
 const offeringBtn = document.querySelector("#offering-btn");
+const servicesBtn = document.querySelector("#services-btn");
+const socialBtn = document.querySelector("#social-btn");
 
 const navArr = [overlay, navOpenBtn, navCloseBtn];
 
@@ -63,4 +67,12 @@ offeringBtn.addEventListener("click", function (e) {
   //     offeringCoords.top + window.scrollY
   //   );
   sectionOffering.scrollIntoView({ behavior: "smooth" });
+});
+
+servicesBtn.addEventListener("click", function (e) {
+  sectionServices.scrollIntoView({ behavior: "smooth" });
+});
+
+socialBtn.addEventListener("click", function (e) {
+  sectionSocial.scrollIntoView({ behavior: "smooth" });
 });

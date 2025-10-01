@@ -209,7 +209,7 @@ header.active {
   background: #000046;
   background: -webkit-linear-gradient(to right, #1cb5e0, #000046);
   background: linear-gradient(to right, #1cb5e0, #000046);
-  min-height: 60vh;
+  min-height: 80vh;
   position: relative;
   border-bottom: 2px solid var(--lightBlue);
 }
