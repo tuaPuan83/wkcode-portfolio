@@ -132,13 +132,15 @@ body {
 /* Header Style */
 header {
   width: 100%;
-  background: var(--white);
+  
   position: fixed;
   z-index: 4;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out,
+  background .3s ease-in-out;
 }
 
 header.active {
+  background: var(--white);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
 }
 
@@ -221,6 +223,9 @@ header.active {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 1s ease-in, visibility 1s;
 }
 
 .hero__header {
@@ -229,6 +234,12 @@ header.active {
   text-transform: uppercase;
   color: var(--white);
   letter-spacing: 4px;
+  
+}
+
+.hero__header span {
+  color: var(--magenta);
+  display: inline;
 }
 
 .hero__detail {
@@ -389,6 +400,7 @@ header.active {
   color: var(--white);
   text-transform: uppercase;
   border-radius: 5px;
+  transition: background .3s ease-in-out;
 }
 
 .portfolio__image img {
@@ -408,6 +420,18 @@ header.active {
   color: var(--slateBlue);
   margin-bottom: 2rem;
   text-align: center;
+}
+
+.portfolio__btn-active {
+  background: var(--lightBlue);
+}
+
+.portfolio__content {
+  display: none;
+}
+
+.portfolio__content.active {
+  display: block;
 }
 
 /* Social Style */
@@ -483,6 +507,12 @@ header.active {
     padding: 1.5rem 2rem;
   }
 
+  .hero__content.loaded {
+    opacity: 1; 
+    visibility: visible;
+  }
+  
+
   .navbar {
     position: static;
     width: auto;
@@ -511,14 +541,25 @@ header.active {
   }
 
   .navbar__link {
-    color: var(--darkGray);
+
+    color: var(--white);
     font-weight: 500;
     padding: 0.5rem 1rem;
+    transition: color 0.3s ease-in-out; 
+  }
+  .navbar__link:is(:hover,:focus) {
+    background: none;
+    color: var(--lightBlue); 
   }
 
-  .navbar__link:is(:hover, :focus) {
+  header.active .navbar__link {
     background: none;
-    color: var(--lightBlue);
+    color: var(--darkGray); 
+  }
+
+  header.active .navbar__link:is(:hover, :focus) {
+    background: none;
+    color: var(--lightBlue); 
   }
 
   .btn-primary {
