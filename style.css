@@ -108,6 +108,7 @@ body {
   max-width: 94rem;
   padding: 8rem 2rem;
   margin: 0 auto;
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
 }
 
 .gray__heading {
@@ -128,14 +129,19 @@ body {
   text-align: center;
 }
 
+.element__hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+  visibility: hidden;
+}
+
 /* Header Style */
 header {
   width: 100%;
-  
+
   position: fixed;
   z-index: 4;
-  transition: box-shadow 0.3s ease-in-out,
-  background .3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 header.active {
@@ -222,8 +228,8 @@ header.active {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0; 
-  visibility: hidden; 
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 1s ease-in, visibility 1s;
 }
 
@@ -233,7 +239,6 @@ header.active {
   text-transform: uppercase;
   color: var(--white);
   letter-spacing: 4px;
-  
 }
 
 .hero__header span {
@@ -399,7 +404,7 @@ header.active {
   color: var(--white);
   text-transform: uppercase;
   border-radius: 5px;
-  transition: background .3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
 
 .portfolio__image img {
@@ -507,10 +512,9 @@ header.active {
   }
 
   .hero__content.loaded {
-    opacity: 1; 
+    opacity: 1;
     visibility: visible;
   }
-  
 
   .navbar {
     position: static;
@@ -540,25 +544,24 @@ header.active {
   }
 
   .navbar__link {
-
     color: var(--white);
     font-weight: 500;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease-in-out; 
+    transition: color 0.3s ease-in-out;
   }
-  .navbar__link:is(:hover,:focus) {
+  .navbar__link:is(:hover, :focus) {
     background: none;
-    color: var(--lightBlue); 
+    color: var(--lightBlue);
   }
 
   header.active .navbar__link {
     background: none;
-    color: var(--darkGray); 
+    color: var(--darkGray);
   }
 
   header.active .navbar__link:is(:hover, :focus) {
     background: none;
-    color: var(--lightBlue); 
+    color: var(--lightBlue);
   }
 
   .btn-primary {

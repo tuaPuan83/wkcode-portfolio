@@ -10,7 +10,7 @@ const navbar = document.querySelector("[data-navbar]");
 const navOpenBtn = document.querySelector("[data-nav-open-btn]");
 const navCloseBtn = document.querySelector("[data-nav-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
-const navbarLink = document.querySelectorAll('.navbar__link')
+const navbarLink = document.querySelectorAll(".navbar__link");
 
 // Section Elements for Smooth Scrolling
 const sectionHero = document.querySelector("#section-hero");
@@ -25,12 +25,11 @@ const servicesBtn = document.querySelector("#services-btn");
 const socialBtn = document.querySelector("#social-btn");
 
 // Portfolio Tab Elements
-const portfolioBtns = document.querySelectorAll('.portfolio__btn');
-const portfolioBtnsWrapper = document.querySelector('.portfolio__btn__wrapper');
-const protfolioContent = document.querySelectorAll('.portfolio__content');
+const portfolioBtns = document.querySelectorAll(".portfolio__btn");
+const portfolioBtnsWrapper = document.querySelector(".portfolio__btn__wrapper");
+const protfolioContent = document.querySelectorAll(".portfolio__content");
 
 const heroContent = document.querySelector(".hero__content");
-
 
 // ==========================================================
 // 2. MOBILE NAVIGATION TOGGLE
@@ -52,7 +51,6 @@ const navArr = [overlay, navOpenBtn, navCloseBtn];
 navArr.forEach((nav) => {
   nav.addEventListener("click", toggleAllElements);
 });
-
 
 // ==========================================================
 // 3. SMOOTH SCROLLING
@@ -150,4 +148,27 @@ document.addEventListener("DOMContentLoaded", function () {
       heroContent.classList.add("loaded");
     }
   }, 50);
+});
+
+// ==========================================================
+// 6. REVEAL IMAGE
+// ==========================================================
+const allSection = document.querySelectorAll(".container");
+
+const revealSection = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove("element__hidden");
+    observer.unobserve(entry.target);
+  });
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.3,
+});
+
+allSection.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add("element__hidden");
 });
